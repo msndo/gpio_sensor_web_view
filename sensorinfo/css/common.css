@@ -1,0 +1,15 @@
+@charset 'utf-8';
+
+body { font-family: sans-serif; line-height: 1.5; }
+.container_content { position: relative; width: 100%; min-height: 400px;  }
+
+.container_indication_status { display: table; margin: 40px auto; }
+.container_indication_status_main { width: 200px; height: 200px; }
+.container_indication_status_sub { width: 20px; height: 20px; }
+
+[data-indication-status] { display: table-row; }
+
+.text_status { display: table-cell; border-radius: 20px; background: #aaa; color: #fff; text-align: center; vertical-align: middle; font-weight: bold; transition: all 0.1s linear; }
+.container_indication_status_main .text_status { font-size: 60px; }
+.container_indication_status_sub .text_status { font-size: 0; }
+[data-indication-status="1"] .text_status { background: #f37; }
