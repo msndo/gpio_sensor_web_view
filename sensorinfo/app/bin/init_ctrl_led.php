@@ -3,7 +3,6 @@ require_once(dirname(__file__) . '/../library/ctrl_gpio.php');
 
 // GPIOコントローラー - LED側
 $controllerGPIOLed = new ControllerGPIO;
-//$controllerGPIOLed -> setModeDebug(true);
 
 // 初期化されていなければ初期化
 $controllerGPIOLed -> setParamsGPIO(
@@ -24,7 +23,7 @@ $controllerGPIOLed -> initGPIO();
 $controllerGPIOSensor = new ControllerGPIO;
 
 // 初期化されていなければ初期化
-//$controllerGPIOSensor -> initGPIO();
+$controllerGPIOSensor -> initGPIO();
 
 // センサ側監視 デーモンループ
 while(true) {

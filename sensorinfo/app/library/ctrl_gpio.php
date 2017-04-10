@@ -42,8 +42,6 @@ class ControllerGPIO {
 		$filenameCtrlDirectionGPIO = $pathTargetIO . '/' . $this -> seriesSettingGpio['filenameIFaceDirection'];
 		$filenameCtrlValueGPIO = $pathTargetIO . '/' . $this -> seriesSettingGpio['filenameIFaceValue'];
 
-		if($this -> isModeDebug === true) { echo $pathTarg; return; }
-
 		if(!file_exists($pathTargetIO)) {
 			file_put_contents($pathInitIO, $this -> seriesSettingGpio['ixIO']);
 			sleep(1);
@@ -58,8 +56,6 @@ class ControllerGPIO {
 		$pathTarg = $this -> getPathTargetIO(). '/' . $this -> seriesSettingGpio['filenameIFaceValue'];
 
 		$status = 0;
-
-		if($this -> isModeDebug === true) { echo $pathTarg; return; }
 
 		if(file_exists($pathTarg)) {
 			$status = preg_replace('/(?:\n|\r|\r\n)/', '', file_get_contents($pathTarg));
