@@ -46,7 +46,7 @@ class Logging {
 		$seriesLog = json_decode($this -> readLogFile(), true);
 		$timestampCurrent = time();
 
-		$controllerGPIOSensor = new ControllerGPIOSensor;
+		$controllerGPIOSensor = new ControllerGPIO;
 		$seriesLog[] = array(
 			'timestamp' => $timestampCurrent,
 			'value' => $controllerGPIOSensor -> getStatusGPIO()
