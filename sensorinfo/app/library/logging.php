@@ -1,4 +1,4 @@
-<?
+<?php
 class Logging {
 	private $durationPolling;
 	private $pathLog;
