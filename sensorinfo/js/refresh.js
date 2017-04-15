@@ -1,6 +1,6 @@
 (function($) {
 	$(function() {
-		$('#indication_status_main').refreshStatus({ keyTypeDataDetection: 'ranged' });
+		$('#indication_status_main').refreshStatus({ keyTypeDataDetection: 'ranged' }).applyStatusToFavicon();
 		$('#indication_status_sub').refreshStatus();
 	});
 
@@ -34,5 +34,36 @@
 				}
 			);
 		}, settings.interval);
+
+		return this;
 	};
+
+	$.fn.applyStatusToFavicon = function(options) {
+		var settings = {
+			selectorElemFavicon: '#favicon'
+		};
+		$.extend(settings, options);
+
+		var $elemTextStatus = this;
+
+		if(! $elemTextStatus.length) { return; }
+
+		var $elemFavicon = $(settings.selectorElemFavicon);
+
+		var urlFaviconBusy = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAQMAAAAGz+OhAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEX/M3f///9RdG5iAAAAAWJLR0QB/wIt3gAAAAd0SU1FB+EEDwY7EwCuBkUAAAAaSURBVEjH7cExAQAAAMKg9U9tDQ+gAACAdwMLuAABXZHjmQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wNC0xNVQxNTo1OToxOSswOTowMCJvpRIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDQtMTVUMTU6NTk6MTkrMDk6MDBTMh2uAAAAAElFTkSuQmCC';
+		var urlFaviconFree = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWAgAAAABT2jafAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAzOEcogAAAAHdElNRQfhBA8HABiqDFrCAAAAL0lEQVRYw+3KIQEAAAgDsPdPgSblKyARm172YqJpmqZpmqZpmqZpmqZpmqZpP1oB0VXEH2Yu008AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTctMDQtMTVUMTY6MDA6MjQrMDk6MDD9vyh3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE3LTA0LTE1VDE2OjAwOjI0KzA5OjAwjOKQywAAAABJRU5ErkJggg==';
+
+
+		setInterval(function() {
+			var textStatus =  $elemTextStatus.text().toLowerCase();
+			if(textStatus == 'busy') {
+				$elemFavicon.attr('href', urlFaviconBusy);
+			}
+			else {
+				$elemFavicon.attr('href', urlFaviconFree);
+			}
+		}, 100);
+
+		return this;
+	}
 })(jQuery);

@@ -23,6 +23,8 @@ if(!empty($paramModeSenseImmediate) && $paramModeSenseImmediate === 'immediate')
 
 <link rel="stylesheet" href="css/common.css">
 
+<link id="favicon" rel="shortcut icon" href="img/favicon_free.png">
+
 <script src="js/lib/jquery-3.2.0.min.js"></script>
 <script src="js/refresh.js"></script>
 </head>
